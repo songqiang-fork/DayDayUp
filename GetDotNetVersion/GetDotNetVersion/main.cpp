@@ -96,8 +96,8 @@ false otherwise
 ******************************************************************/
 bool IsNetfx10Installed()
 {
-	TCHAR szRegValue[MAX_PATH];
-	return (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx10RegKeyName, g_szNetfx10RegKeyValue, NULL, (LPBYTE)szRegValue, MAX_PATH));
+    TCHAR szRegValue[MAX_PATH];
+    return (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx10RegKeyName, g_szNetfx10RegKeyValue, NULL, (LPBYTE)szRegValue, MAX_PATH));
 }
 
 
@@ -113,16 +113,16 @@ false otherwise
 ******************************************************************/
 bool IsNetfx11Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx11RegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (1 == dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx11RegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (1 == dwRegValue)
+            bRetValue = true;
+    }
 
-	return bRetValue;
+    return bRetValue;
 }
 
 
@@ -138,16 +138,16 @@ false otherwise
 ******************************************************************/
 bool IsNetfx20Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx20RegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (1 == dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx20RegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (1 == dwRegValue)
+            bRetValue = true;
+    }
 
-	return bRetValue;
+    return bRetValue;
 }
 
 
@@ -163,20 +163,20 @@ false otherwise
 ******************************************************************/
 bool IsNetfx30Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	// Check that the InstallSuccess registry value exists and equals 1
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx30RegKeyName, g_szNetfx30RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (1 == dwRegValue)
-			bRetValue = true;
-	}
+    // Check that the InstallSuccess registry value exists and equals 1
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx30RegKeyName, g_szNetfx30RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (1 == dwRegValue)
+            bRetValue = true;
+    }
 
-	// A system with a pre-release version of the .NET Framework 3.0 can
-	// have the InstallSuccess value.  As an added verification, check the
-	// version number listed in the registry
-	return (bRetValue && CheckNetfxBuildNumber(g_szNetfx30RegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx30VersionMajor, g_iNetfx30VersionMinor, g_iNetfx30VersionBuild, g_iNetfx30VersionRevision));
+    // A system with a pre-release version of the .NET Framework 3.0 can
+    // have the InstallSuccess value.  As an added verification, check the
+    // version number listed in the registry
+    return (bRetValue && CheckNetfxBuildNumber(g_szNetfx30RegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx30VersionMajor, g_iNetfx30VersionMinor, g_iNetfx30VersionBuild, g_iNetfx30VersionRevision));
 }
 
 
@@ -192,20 +192,20 @@ false otherwise
 ******************************************************************/
 bool IsNetfx35Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	// Check that the Install registry value exists and equals 1
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx35RegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (1 == dwRegValue)
-			bRetValue = true;
-	}
+    // Check that the Install registry value exists and equals 1
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx35RegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (1 == dwRegValue)
+            bRetValue = true;
+    }
 
-	// A system with a pre-release version of the .NET Framework 3.5 can
-	// have the Install value.  As an added verification, check the
-	// version number listed in the registry
-	return (bRetValue && CheckNetfxBuildNumber(g_szNetfx35RegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx35VersionMajor, g_iNetfx35VersionMinor, g_iNetfx35VersionBuild, g_iNetfx35VersionRevision));
+    // A system with a pre-release version of the .NET Framework 3.5 can
+    // have the Install value.  As an added verification, check the
+    // version number listed in the registry
+    return (bRetValue && CheckNetfxBuildNumber(g_szNetfx35RegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx35VersionMajor, g_iNetfx35VersionMinor, g_iNetfx35VersionBuild, g_iNetfx35VersionRevision));
 }
 
 
@@ -221,19 +221,19 @@ false otherwise
 ******************************************************************/
 bool IsNetfx40ClientInstalled()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx40ClientRegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (1 == dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx40ClientRegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (1 == dwRegValue)
+            bRetValue = true;
+    }
 
-	// A system with a pre-release version of the .NET Framework 4 can
-	// have the Install value.  As an added verification, check the
-	// version number listed in the registry
-	return (bRetValue && CheckNetfxBuildNumber(g_szNetfx40ClientRegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx40VersionMajor, g_iNetfx40VersionMinor, g_iNetfx40VersionBuild, g_iNetfx40VersionRevision));
+    // A system with a pre-release version of the .NET Framework 4 can
+    // have the Install value.  As an added verification, check the
+    // version number listed in the registry
+    return (bRetValue && CheckNetfxBuildNumber(g_szNetfx40ClientRegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx40VersionMajor, g_iNetfx40VersionMinor, g_iNetfx40VersionBuild, g_iNetfx40VersionRevision));
 }
 
 
@@ -249,19 +249,19 @@ false otherwise
 ******************************************************************/
 bool IsNetfx40FullInstalled()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx40FullRegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (1 == dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx40FullRegKeyName, g_szNetfxStandardRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (1 == dwRegValue)
+            bRetValue = true;
+    }
 
-	// A system with a pre-release version of the .NET Framework 4 can
-	// have the Install value.  As an added verification, check the
-	// version number listed in the registry
-	return (bRetValue && CheckNetfxBuildNumber(g_szNetfx40FullRegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx40VersionMajor, g_iNetfx40VersionMinor, g_iNetfx40VersionBuild, g_iNetfx40VersionRevision));
+    // A system with a pre-release version of the .NET Framework 4 can
+    // have the Install value.  As an added verification, check the
+    // version number listed in the registry
+    return (bRetValue && CheckNetfxBuildNumber(g_szNetfx40FullRegKeyName, g_szNetfxStandardVersionRegValueName, g_iNetfx40VersionMajor, g_iNetfx40VersionMinor, g_iNetfx40VersionBuild, g_iNetfx40VersionRevision));
 }
 
 
@@ -277,16 +277,16 @@ false otherwise
 ******************************************************************/
 bool IsNetfx45Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (g_dwNetfx45ReleaseVersion <= dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (g_dwNetfx45ReleaseVersion <= dwRegValue)
+            bRetValue = true;
+    }
 
-	return bRetValue;
+    return bRetValue;
 }
 
 
@@ -302,16 +302,16 @@ false otherwise
 ******************************************************************/
 bool IsNetfx451Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (g_dwNetfx451ReleaseVersion <= dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (g_dwNetfx451ReleaseVersion <= dwRegValue)
+            bRetValue = true;
+    }
 
-	return bRetValue;
+    return bRetValue;
 }
 
 
@@ -327,16 +327,16 @@ false otherwise
 ******************************************************************/
 bool IsNetfx452Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (g_dwNetfx452ReleaseVersion <= dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (g_dwNetfx452ReleaseVersion <= dwRegValue)
+            bRetValue = true;
+    }
 
-	return bRetValue;
+    return bRetValue;
 }
 
 
@@ -352,16 +352,16 @@ false otherwise
 ******************************************************************/
 bool IsNetfx46Installed()
 {
-	bool bRetValue = false;
-	DWORD dwRegValue = 0;
+    bool bRetValue = false;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		if (g_dwNetfx46ReleaseVersion <= dwRegValue)
-			bRetValue = true;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx45RegKeyName, g_szNetfx45RegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        if (g_dwNetfx46ReleaseVersion <= dwRegValue)
+            bRetValue = true;
+    }
 
-	return bRetValue;
+    return bRetValue;
 }
 
 
@@ -376,35 +376,35 @@ Results:        integer representing SP level for .NET Framework 1.0
 ******************************************************************/
 int GetNetfx10SPLevel()
 {
-	TCHAR szRegValue[MAX_PATH];
-	TCHAR *pszSPLevel = NULL;
-	int iRetValue = -1;
-	bool bRegistryRetVal = false;
+    TCHAR szRegValue[MAX_PATH];
+    TCHAR *pszSPLevel = NULL;
+    int iRetValue = -1;
+    bool bRegistryRetVal = false;
 
-	// Need to detect what OS we are running on so we know what
-	// registry key to use to look up the SP level
-	if (IsCurrentOSTabletMedCenter())
-		bRegistryRetVal = RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx10SPxOCMRegKeyName, g_szNetfxStandardVersionRegValueName, NULL, (LPBYTE)szRegValue, MAX_PATH);
-	else
-		bRegistryRetVal = RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx10SPxMSIRegKeyName, g_szNetfxStandardVersionRegValueName, NULL, (LPBYTE)szRegValue, MAX_PATH);
+    // Need to detect what OS we are running on so we know what
+    // registry key to use to look up the SP level
+    if (IsCurrentOSTabletMedCenter())
+        bRegistryRetVal = RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx10SPxOCMRegKeyName, g_szNetfxStandardVersionRegValueName, NULL, (LPBYTE)szRegValue, MAX_PATH);
+    else
+        bRegistryRetVal = RegistryGetValue(HKEY_LOCAL_MACHINE, g_szNetfx10SPxMSIRegKeyName, g_szNetfxStandardVersionRegValueName, NULL, (LPBYTE)szRegValue, MAX_PATH);
 
-	if (bRegistryRetVal)
-	{
-		// This registry value should be of the format
-		// #,#,#####,# where the last # is the SP level
-		// Try to parse off the last # here
-		pszSPLevel = _tcsrchr(szRegValue, _T(','));
-		if (NULL != pszSPLevel)
-		{
-			// Increment the pointer to skip the comma
-			pszSPLevel++;
+    if (bRegistryRetVal)
+    {
+        // This registry value should be of the format
+        // #,#,#####,# where the last # is the SP level
+        // Try to parse off the last # here
+        pszSPLevel = _tcsrchr(szRegValue, _T(','));
+        if (NULL != pszSPLevel)
+        {
+            // Increment the pointer to skip the comma
+            pszSPLevel++;
 
-			// Convert the remaining value to an integer
-			iRetValue = _tstoi(pszSPLevel);
-		}
-	}
+            // Convert the remaining value to an integer
+            iRetValue = _tstoi(pszSPLevel);
+        }
+    }
 
-	return iRetValue;
+    return iRetValue;
 }
 
 
@@ -420,17 +420,17 @@ Results:        integer representing SP level for .NET Framework
 ******************************************************************/
 int GetNetfxSPLevel(const TCHAR *pszNetfxRegKeyName, const TCHAR *pszNetfxRegValueName)
 {
-	DWORD dwRegValue = 0;
+    DWORD dwRegValue = 0;
 
-	if (RegistryGetValue(HKEY_LOCAL_MACHINE, pszNetfxRegKeyName, pszNetfxRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
-	{
-		return (int)dwRegValue;
-	}
+    if (RegistryGetValue(HKEY_LOCAL_MACHINE, pszNetfxRegKeyName, pszNetfxRegValueName, NULL, (LPBYTE)&dwRegValue, sizeof(DWORD)))
+    {
+        return (int)dwRegValue;
+    }
 
-	// We can only get here if the .NET Framework is not
-	// installed or there was some kind of error retrieving
-	// the data from the registry
-	return -1;
+    // We can only get here if the .NET Framework is not
+    // installed or there was some kind of error retrieving
+    // the data from the registry
+    return -1;
 }
 
 
@@ -445,97 +445,97 @@ than or equal to the passed in version; false otherwise
 ******************************************************************/
 bool CheckNetfxBuildNumber(const TCHAR *pszNetfxRegKeyName, const TCHAR *pszNetfxRegKeyValue, const int iRequestedVersionMajor, const int iRequestedVersionMinor, const int iRequestedVersionBuild, const int iRequestedVersionRevision)
 {
-	TCHAR szRegValue[MAX_PATH];
-	TCHAR *pszToken = NULL;
-	TCHAR *pszNextToken = NULL;
-	int iVersionPartCounter = 0;
-	int iRegistryVersionMajor = 0;
-	int iRegistryVersionMinor = 0;
-	int iRegistryVersionBuild = 0;
-	int iRegistryVersionRevision = 0;
-	bool bRegistryRetVal = false;
+    TCHAR szRegValue[MAX_PATH];
+    TCHAR *pszToken = NULL;
+    TCHAR *pszNextToken = NULL;
+    int iVersionPartCounter = 0;
+    int iRegistryVersionMajor = 0;
+    int iRegistryVersionMinor = 0;
+    int iRegistryVersionBuild = 0;
+    int iRegistryVersionRevision = 0;
+    bool bRegistryRetVal = false;
 
-	// Attempt to retrieve the build number registry value
-	bRegistryRetVal = RegistryGetValue(HKEY_LOCAL_MACHINE, pszNetfxRegKeyName, pszNetfxRegKeyValue, NULL, (LPBYTE)szRegValue, MAX_PATH);
+    // Attempt to retrieve the build number registry value
+    bRegistryRetVal = RegistryGetValue(HKEY_LOCAL_MACHINE, pszNetfxRegKeyName, pszNetfxRegKeyValue, NULL, (LPBYTE)szRegValue, MAX_PATH);
 
-	if (bRegistryRetVal)
-	{
-		// This registry value should be of the format
-		// #.#.#####.##.  Try to parse the 4 parts of
-		// the version here
-		pszToken = _tcstok_s(szRegValue, _T("."), &pszNextToken);
-		while (NULL != pszToken)
-		{
-			iVersionPartCounter++;
+    if (bRegistryRetVal)
+    {
+        // This registry value should be of the format
+        // #.#.#####.##.  Try to parse the 4 parts of
+        // the version here
+        pszToken = _tcstok_s(szRegValue, _T("."), &pszNextToken);
+        while (NULL != pszToken)
+        {
+            iVersionPartCounter++;
 
-			switch (iVersionPartCounter)
-			{
-			case 1:
-				// Convert the major version value to an integer
-				iRegistryVersionMajor = _tstoi(pszToken);
-				break;
-			case 2:
-				// Convert the minor version value to an integer
-				iRegistryVersionMinor = _tstoi(pszToken);
-				break;
-			case 3:
-				// Convert the build number value to an integer
-				iRegistryVersionBuild = _tstoi(pszToken);
-				break;
-			case 4:
-				// Convert the revision number value to an integer
-				iRegistryVersionRevision = _tstoi(pszToken);
-				break;
-			default:
-				break;
+            switch (iVersionPartCounter)
+            {
+            case 1:
+                // Convert the major version value to an integer
+                iRegistryVersionMajor = _tstoi(pszToken);
+                break;
+            case 2:
+                // Convert the minor version value to an integer
+                iRegistryVersionMinor = _tstoi(pszToken);
+                break;
+            case 3:
+                // Convert the build number value to an integer
+                iRegistryVersionBuild = _tstoi(pszToken);
+                break;
+            case 4:
+                // Convert the revision number value to an integer
+                iRegistryVersionRevision = _tstoi(pszToken);
+                break;
+            default:
+                break;
 
-			}
+            }
 
-			// Get the next part of the version number
-			pszToken = _tcstok_s(NULL, _T("."), &pszNextToken);
-		}
-	}
+            // Get the next part of the version number
+            pszToken = _tcstok_s(NULL, _T("."), &pszNextToken);
+        }
+    }
 
-	// Compare the version number retrieved from the registry with
-	// the version number of the final release of the .NET Framework
-	// that we are checking
-	if (iRegistryVersionMajor > iRequestedVersionMajor)
-	{
-		return true;
-	}
-	else if (iRegistryVersionMajor == iRequestedVersionMajor)
-	{
-		if (iRegistryVersionMinor > iRequestedVersionMinor)
-		{
-			return true;
-		}
-		else if (iRegistryVersionMinor == iRequestedVersionMinor)
-		{
-			if (iRegistryVersionBuild > iRequestedVersionBuild)
-			{
-				return true;
-			}
-			else if (iRegistryVersionBuild == iRequestedVersionBuild)
-			{
-				if (iRegistryVersionRevision >= iRequestedVersionRevision)
-				{
-					return true;
-				}
-			}
-		}
-	}
+    // Compare the version number retrieved from the registry with
+    // the version number of the final release of the .NET Framework
+    // that we are checking
+    if (iRegistryVersionMajor > iRequestedVersionMajor)
+    {
+        return true;
+    }
+    else if (iRegistryVersionMajor == iRequestedVersionMajor)
+    {
+        if (iRegistryVersionMinor > iRequestedVersionMinor)
+        {
+            return true;
+        }
+        else if (iRegistryVersionMinor == iRequestedVersionMinor)
+        {
+            if (iRegistryVersionBuild > iRequestedVersionBuild)
+            {
+                return true;
+            }
+            else if (iRegistryVersionBuild == iRequestedVersionBuild)
+            {
+                if (iRegistryVersionRevision >= iRequestedVersionRevision)
+                {
+                    return true;
+                }
+            }
+        }
+    }
 
-	// If we get here, the version in the registry must be less than the
-	// version of the final release of the .NET Framework we are checking,
-	// so return false
-	return false;
+    // If we get here, the version in the registry must be less than the
+    // version of the final release of the .NET Framework we are checking,
+    // so return false
+    return false;
 }
 
 
 bool IsCurrentOSTabletMedCenter()
 {
-	// Use GetSystemMetrics to detect if we are on a Tablet PC or Media Center OS  
-	return ((GetSystemMetrics(SM_TABLETPC) != 0) || (GetSystemMetrics(SM_MEDIACENTER) != 0));
+    // Use GetSystemMetrics to detect if we are on a Tablet PC or Media Center OS  
+    return ((GetSystemMetrics(SM_TABLETPC) != 0) || (GetSystemMetrics(SM_MEDIACENTER) != 0));
 }
 
 
@@ -552,270 +552,270 @@ Results:		true if successful, false otherwise
 ******************************************************************/
 bool RegistryGetValue(HKEY hk, const TCHAR * pszKey, const TCHAR * pszValue, DWORD dwType, LPBYTE data, DWORD dwSize)
 {
-	HKEY hkOpened;
+    HKEY hkOpened;
 
-	// Try to open the key
-	if (RegOpenKeyEx(hk, pszKey, 0, KEY_READ, &hkOpened) != ERROR_SUCCESS)
-	{
-		return false;
-	}
+    // Try to open the key
+    if (RegOpenKeyEx(hk, pszKey, 0, KEY_READ, &hkOpened) != ERROR_SUCCESS)
+    {
+        return false;
+    }
 
-	// If the key was opened, try to retrieve the value
-	if (RegQueryValueEx(hkOpened, pszValue, 0, &dwType, (LPBYTE)data, &dwSize) != ERROR_SUCCESS)
-	{
-		RegCloseKey(hkOpened);
-		return false;
-	}
+    // If the key was opened, try to retrieve the value
+    if (RegQueryValueEx(hkOpened, pszValue, 0, &dwType, (LPBYTE)data, &dwSize) != ERROR_SUCCESS)
+    {
+        RegCloseKey(hkOpened);
+        return false;
+    }
 
-	// Clean up
-	RegCloseKey(hkOpened);
+    // Clean up
+    RegCloseKey(hkOpened);
 
-	return true;
+    return true;
 }
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
-	HINSTANCE hPrevInstance,
-	LPTSTR    lpCmdLine,
-	int       nCmdShow)
+    HINSTANCE hPrevInstance,
+    LPTSTR    lpCmdLine,
+    int       nCmdShow)
 {
-	int iNetfx10SPLevel = -1;
-	int iNetfx11SPLevel = -1;
-	int iNetfx20SPLevel = -1;
-	int iNetfx30SPLevel = -1;
-	int iNetfx35SPLevel = -1;
-	int iNetfx40ClientSPLevel = -1;
-	int iNetfx40FullSPLevel = -1;
-	int iNetfx45SPLevel = -1;
-	int iNetfx451SPLevel = -1;
-	int iNetfx452SPLevel = -1;
-	int iNetfx46SPLevel = -1;
-	TCHAR szMessage[MAX_PATH];
-	TCHAR szOutputString[MAX_PATH * 20];
+    int iNetfx10SPLevel = -1;
+    int iNetfx11SPLevel = -1;
+    int iNetfx20SPLevel = -1;
+    int iNetfx30SPLevel = -1;
+    int iNetfx35SPLevel = -1;
+    int iNetfx40ClientSPLevel = -1;
+    int iNetfx40FullSPLevel = -1;
+    int iNetfx45SPLevel = -1;
+    int iNetfx451SPLevel = -1;
+    int iNetfx452SPLevel = -1;
+    int iNetfx46SPLevel = -1;
+    TCHAR szMessage[MAX_PATH];
+    TCHAR szOutputString[MAX_PATH * 20];
 
-	// Determine whether or not the .NET Framework
-	// 1.0, 1.1, 2.0, 3.0, 3.5, 4, 4.5, 4.5.1, 4.5.2, or 4.6 are installed
-	bool bNetfx10Installed = IsNetfx10Installed();
-	bool bNetfx11Installed = IsNetfx11Installed();
-	bool bNetfx20Installed = IsNetfx20Installed();
+    // Determine whether or not the .NET Framework
+    // 1.0, 1.1, 2.0, 3.0, 3.5, 4, 4.5, 4.5.1, 4.5.2, or 4.6 are installed
+    bool bNetfx10Installed = IsNetfx10Installed();
+    bool bNetfx11Installed = IsNetfx11Installed();
+    bool bNetfx20Installed = IsNetfx20Installed();
 
-	// The .NET Framework 3.0 is an add-in that installs
-	// on top of the .NET Framework 2.0.  For this version
-	// check, validate that both 2.0 and 3.0 are installed.
-	bool bNetfx30Installed = (IsNetfx20Installed() && IsNetfx30Installed());
+    // The .NET Framework 3.0 is an add-in that installs
+    // on top of the .NET Framework 2.0.  For this version
+    // check, validate that both 2.0 and 3.0 are installed.
+    bool bNetfx30Installed = (IsNetfx20Installed() && IsNetfx30Installed());
 
-	// The .NET Framework 3.5 is an add-in that installs
-	// on top of the .NET Framework 2.0 and 3.0.  For this version
-	// check, validate that 2.0, 3.0 and 3.5 are installed.
-	bool bNetfx35Installed = (IsNetfx20Installed() && IsNetfx30Installed() && IsNetfx35Installed());
+    // The .NET Framework 3.5 is an add-in that installs
+    // on top of the .NET Framework 2.0 and 3.0.  For this version
+    // check, validate that 2.0, 3.0 and 3.5 are installed.
+    bool bNetfx35Installed = (IsNetfx20Installed() && IsNetfx30Installed() && IsNetfx35Installed());
 
-	bool bNetfx40ClientInstalled = (IsNetfx40ClientInstalled());
-	bool bNetfx40FullInstalled = (IsNetfx40FullInstalled());
+    bool bNetfx40ClientInstalled = (IsNetfx40ClientInstalled());
+    bool bNetfx40FullInstalled = (IsNetfx40FullInstalled());
 
-	bool bNetfx45Installed = (IsNetfx45Installed());
-	bool bNetfx451Installed = (IsNetfx451Installed());
-	bool bNetfx452Installed = (IsNetfx452Installed());
-	bool bNetfx46Installed = (IsNetfx46Installed());
+    bool bNetfx45Installed = (IsNetfx45Installed());
+    bool bNetfx451Installed = (IsNetfx451Installed());
+    bool bNetfx452Installed = (IsNetfx452Installed());
+    bool bNetfx46Installed = (IsNetfx46Installed());
 
-	// If .NET Framework 1.0 is installed, get the
-	// service pack level
-	if (bNetfx10Installed)
-	{
-		iNetfx10SPLevel = GetNetfx10SPLevel();
+    // If .NET Framework 1.0 is installed, get the
+    // service pack level
+    if (bNetfx10Installed)
+    {
+        iNetfx10SPLevel = GetNetfx10SPLevel();
 
-		if (iNetfx10SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T(".NET Framework 1.0 service pack %i is installed."), iNetfx10SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T(".NET Framework 1.0 is installed with no service packs."));
+        if (iNetfx10SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T(".NET Framework 1.0 service pack %i is installed."), iNetfx10SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T(".NET Framework 1.0 is installed with no service packs."));
 
-		_tcscpy_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscpy_s(szOutputString, _T(".NET Framework 1.0 is not installed."));
-	}
+        _tcscpy_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscpy_s(szOutputString, _T(".NET Framework 1.0 is not installed."));
+    }
 
-	// If .NET Framework 1.1 is installed, get the
-	// service pack level
-	if (bNetfx11Installed)
-	{
-		iNetfx11SPLevel = GetNetfxSPLevel(g_szNetfx11RegKeyName, g_szNetfxStandardSPxRegValueName);
+    // If .NET Framework 1.1 is installed, get the
+    // service pack level
+    if (bNetfx11Installed)
+    {
+        iNetfx11SPLevel = GetNetfxSPLevel(g_szNetfx11RegKeyName, g_szNetfxStandardSPxRegValueName);
 
-		if (iNetfx11SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 1.1 service pack %i is installed."), iNetfx11SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 1.1 is installed with no service packs."));
+        if (iNetfx11SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 1.1 service pack %i is installed."), iNetfx11SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 1.1 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 1.1 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 1.1 is not installed."));
+    }
 
-	// If .NET Framework 2.0 is installed, get the
-	// service pack level
-	if (bNetfx20Installed)
-	{
-		iNetfx20SPLevel = GetNetfxSPLevel(g_szNetfx20RegKeyName, g_szNetfxStandardSPxRegValueName);
+    // If .NET Framework 2.0 is installed, get the
+    // service pack level
+    if (bNetfx20Installed)
+    {
+        iNetfx20SPLevel = GetNetfxSPLevel(g_szNetfx20RegKeyName, g_szNetfxStandardSPxRegValueName);
 
-		if (iNetfx20SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 2.0 service pack %i is installed."), iNetfx20SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 2.0 is installed with no service packs."));
+        if (iNetfx20SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 2.0 service pack %i is installed."), iNetfx20SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 2.0 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 2.0 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 2.0 is not installed."));
+    }
 
-	// If .NET Framework 3.0 is installed, get the
-	// service pack level
-	if (bNetfx30Installed)
-	{
-		iNetfx30SPLevel = GetNetfxSPLevel(g_szNetfx30SpRegKeyName, g_szNetfxStandardSPxRegValueName);
+    // If .NET Framework 3.0 is installed, get the
+    // service pack level
+    if (bNetfx30Installed)
+    {
+        iNetfx30SPLevel = GetNetfxSPLevel(g_szNetfx30SpRegKeyName, g_szNetfxStandardSPxRegValueName);
 
-		if (iNetfx30SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.0 service pack %i is installed."), iNetfx30SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.0 is installed with no service packs."));
+        if (iNetfx30SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.0 service pack %i is installed."), iNetfx30SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.0 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 3.0 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 3.0 is not installed."));
+    }
 
-	// If .NET Framework 3.5 is installed, get the
-	// service pack level
-	if (bNetfx35Installed)
-	{
-		iNetfx35SPLevel = GetNetfxSPLevel(g_szNetfx35RegKeyName, g_szNetfxStandardSPxRegValueName);
+    // If .NET Framework 3.5 is installed, get the
+    // service pack level
+    if (bNetfx35Installed)
+    {
+        iNetfx35SPLevel = GetNetfxSPLevel(g_szNetfx35RegKeyName, g_szNetfxStandardSPxRegValueName);
 
-		if (iNetfx35SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.5 service pack %i is installed."), iNetfx35SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.5 is installed with no service packs."));
+        if (iNetfx35SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.5 service pack %i is installed."), iNetfx35SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 3.5 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 3.5 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 3.5 is not installed."));
+    }
 
-	// If .NET Framework 4 Client is installed, get the
-	// service pack level
-	if (bNetfx40ClientInstalled)
-	{
-		iNetfx40ClientSPLevel = GetNetfxSPLevel(g_szNetfx40ClientRegKeyName, g_szNetfx40SPxRegValueName);
+    // If .NET Framework 4 Client is installed, get the
+    // service pack level
+    if (bNetfx40ClientInstalled)
+    {
+        iNetfx40ClientSPLevel = GetNetfxSPLevel(g_szNetfx40ClientRegKeyName, g_szNetfx40SPxRegValueName);
 
-		if (iNetfx40ClientSPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 client service pack %i is installed."), iNetfx40ClientSPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 client is installed with no service packs."));
+        if (iNetfx40ClientSPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 client service pack %i is installed."), iNetfx40ClientSPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 client is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 4 client is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 4 client is not installed."));
+    }
 
-	// If .NET Framework 4 Full is installed, get the
-	// service pack level
-	if (bNetfx40FullInstalled)
-	{
-		iNetfx40FullSPLevel = GetNetfxSPLevel(g_szNetfx40FullRegKeyName, g_szNetfx40SPxRegValueName);
+    // If .NET Framework 4 Full is installed, get the
+    // service pack level
+    if (bNetfx40FullInstalled)
+    {
+        iNetfx40FullSPLevel = GetNetfxSPLevel(g_szNetfx40FullRegKeyName, g_szNetfx40SPxRegValueName);
 
-		if (iNetfx40FullSPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 full service pack %i is installed."), iNetfx40FullSPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 full is installed with no service packs."));
+        if (iNetfx40FullSPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 full service pack %i is installed."), iNetfx40FullSPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4 full is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 4 full is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 4 full is not installed."));
+    }
 
-	// If .NET Framework 4.5 is installed, get the
-	// service pack level
-	if (bNetfx45Installed)
-	{
-		iNetfx45SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
+    // If .NET Framework 4.5 is installed, get the
+    // service pack level
+    if (bNetfx45Installed)
+    {
+        iNetfx45SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
 
-		if (iNetfx45SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5 service pack %i is installed."), iNetfx45SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5 is installed with no service packs."));
+        if (iNetfx45SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5 service pack %i is installed."), iNetfx45SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 4.5 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 4.5 is not installed."));
+    }
 
-	// If .NET Framework 4.5.1 is installed, get the
-	// service pack level
-	if (bNetfx451Installed)
-	{
-		iNetfx451SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
+    // If .NET Framework 4.5.1 is installed, get the
+    // service pack level
+    if (bNetfx451Installed)
+    {
+        iNetfx451SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
 
-		if (iNetfx451SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.1 service pack %i is installed."), iNetfx451SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.1 is installed with no service packs."));
+        if (iNetfx451SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.1 service pack %i is installed."), iNetfx451SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.1 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 4.5.1 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 4.5.1 is not installed."));
+    }
 
-	// If .NET Framework 4.5.2 is installed, get the
-	// service pack level
-	if (bNetfx452Installed)
-	{
-		iNetfx452SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
+    // If .NET Framework 4.5.2 is installed, get the
+    // service pack level
+    if (bNetfx452Installed)
+    {
+        iNetfx452SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
 
-		if (iNetfx452SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.2 service pack %i is installed."), iNetfx452SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.2 is installed with no service packs."));
+        if (iNetfx452SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.2 service pack %i is installed."), iNetfx452SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.5.2 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 4.5.2 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 4.5.2 is not installed."));
+    }
 
-	// If .NET Framework 4.6 is installed, get the
-	// service pack level
-	if (bNetfx46Installed)
-	{
-		iNetfx46SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
+    // If .NET Framework 4.6 is installed, get the
+    // service pack level
+    if (bNetfx46Installed)
+    {
+        iNetfx46SPLevel = GetNetfxSPLevel(g_szNetfx45RegKeyName, g_szNetfx40SPxRegValueName);
 
-		if (iNetfx46SPLevel > 0)
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.6 service pack %i is installed."), iNetfx46SPLevel);
-		else
-			_stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.6 is installed with no service packs."));
+        if (iNetfx46SPLevel > 0)
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.6 service pack %i is installed."), iNetfx46SPLevel);
+        else
+            _stprintf_s(szMessage, MAX_PATH, _T("\n\n.NET Framework 4.6 is installed with no service packs."));
 
-		_tcscat_s(szOutputString, szMessage);
-	}
-	else
-	{
-		_tcscat_s(szOutputString, _T("\n\n.NET Framework 4.6 is not installed."));
-	}
+        _tcscat_s(szOutputString, szMessage);
+    }
+    else
+    {
+        _tcscat_s(szOutputString, _T("\n\n.NET Framework 4.6 is not installed."));
+    }
 
-	MessageBox(NULL, szOutputString, _T(".NET Framework Install Info"), MB_OK | MB_ICONINFORMATION);
+    MessageBox(NULL, szOutputString, _T(".NET Framework Install Info"), MB_OK | MB_ICONINFORMATION);
 
-	return 0;
+    return 0;
 }
 
